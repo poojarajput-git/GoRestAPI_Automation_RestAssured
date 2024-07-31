@@ -1,0 +1,32 @@
+# Maven
+target/
+*.log
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.swp
+
+# Log files
+*.log
+
+# Misc
+*.tmp
+*.bak
+*.swp
