@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="GoRest API Regression Test Suite" parallel="tests" thread-count="2">
+
+    <test name="GoRest API Test1">
+        <parameter name="baseURI" value="https://gorest.co.in" />
+        <classes>
+            <class name="com.qa.gorest.Tests.GetUserTest"/>
+        </classes>
+    </test>
+
+    <!--<test name="GoRest API Test2">
+        <parameter name="baseURI" value="https://gorest.co.in" />
+        <classes>
+            <class name="com.qa.gorest.Tests.CreateUserTest"/>
+        </classes>
+    </test>-->
+
+    <test name="Circuits API Tests">
+        <parameter name="baseURI" value="https://ergast.com" />
+        <classes>
+            <class name="com.qa.gorest.Tests.CircuitsTest"/>
+        </classes>
+    </test>
+</suite>

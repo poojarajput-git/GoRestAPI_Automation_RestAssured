@@ -14,7 +14,7 @@ public class CreateUserTest extends BaseTest {
 	@Test
 	public void createUserAllTest() {
 		//post
-		user_pojo = new UserPOJO("Dharmraj Yudhister", StringUtils.generateRandomEmailID(), "male", "active");
+		user_pojo = new UserPOJO("Sachin Shukla", StringUtils.generateRandomEmailID(), "male", "active");
 		Integer userID = restClient.post("/public/v2/users", "JSON", user_pojo, true)
 		          .then().assertThat().statusCode(201)
 		          .extract().path("id");

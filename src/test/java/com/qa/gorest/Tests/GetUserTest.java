@@ -18,17 +18,17 @@ public class GetUserTest extends BaseTest {
 
 	@Test
 	public void getUser() {
-		restClient.get("/public/v2/users/7253028", true)
+		restClient.get("/public/v2/users/7264335", true)
 		          .then().log().all()
 		             .assertThat().statusCode(200)
-		                .and().body("id", equalTo(7253028));
+		                .and().body("id", equalTo(7264335));
 	}
 
 
 	@Test
 	public void getUserWithQueryParam() {
 		Map<String, String> queryParams =  new HashMap<String, String>();
-		queryParams.put("name", "Draupadi");
+		queryParams.put("name", "Dharmraj");
 		queryParams.put("status", "active");
 
 		restClient.get("/public/v2/users/", null, queryParams, true)
