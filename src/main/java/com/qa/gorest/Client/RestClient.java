@@ -1,7 +1,9 @@
 package com.qa.gorest.Client;
 
 import java.util.Map;
+import java.util.Properties;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.qa.gorest.FrameworkExceptions.APIFrameworkExceptions;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -10,17 +12,19 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class RestClient {
-
-    private static final String BASE_URI = "https://gorest.co.in";
-    private static final String BEARER_TOKEN = "62ee3b876b7c7fb374f91daad3ae5a41ed38753972c196b129d433849a5864d5";
-
+   // private static final String BASE_URI = "https://gorest.co.in";
+    // private static final String BEARER_TOKEN = "62ee3b876b7c7fb374f91daad3ae5a41ed38753972c196b129d433849a5864d5";
     private RequestSpecBuilder specBuilder;
+    private final Properties prop;
+    private final String baseURI;
 
-    public RestClient() {
+    public RestClient(Properties prop, String baseURI) {
+        this.prop = prop;
+        this.baseURI = baseURI;
         specBuilder = new RequestSpecBuilder();
-        specBuilder.setBaseUri(BASE_URI);
+        specBuilder.setBaseUri(baseURI);
         // Set Authorization header once
-        specBuilder.addHeader("Authorization", "Bearer " + BEARER_TOKEN);
+        specBuilder.addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"));
     }
 
     private void setRequestContentType(RequestSpecBuilder builder, String contentType) {
@@ -41,8 +45,8 @@ public class RestClient {
 
     private RequestSpecification createRequestSpec(Object requestBody, String contentType, Map<String, String> headersMap) {
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.setBaseUri(BASE_URI);
-        builder.addHeader("Authorization", "Bearer " + BEARER_TOKEN);
+        builder.setBaseUri(baseURI);
+        builder.addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"));
 
         if (headersMap != null) {
             builder.addHeaders(headersMap);
@@ -57,8 +61,8 @@ public class RestClient {
 
     private RequestSpecification createRequestSpec(Map<String, String> headersMap, Map<String, String> queryParams) {
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.setBaseUri(BASE_URI);
-        builder.addHeader("Authorization", "Bearer " + BEARER_TOKEN);
+        builder.setBaseUri(baseURI);
+        builder.addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"));
 
         if (headersMap != null) {
             builder.addHeaders(headersMap);
@@ -74,8 +78,8 @@ public class RestClient {
 
     // GET Methods
     public Response get(String serviceURL, boolean log) {
-        RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri(BASE_URI)
-                                                                  .addHeader("Authorization", "Bearer " + BEARER_TOKEN)
+        RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri(baseURI)
+                                                                  .addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"))
                                                                   .build();
         if (log) {
             return RestAssured.given(requestSpec).log().all()
@@ -170,8 +174,8 @@ public class RestClient {
 
     // DELETE Methods
     public Response delete(String serviceURL, boolean log) {
-        RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri(BASE_URI)
-                                                                  .addHeader("Authorization", "Bearer " + BEARER_TOKEN)
+        RequestSpecification requestSpec = new RequestSpecBuilder().setBaseUri(baseURI)
+                                                                  .addHeader("Authorization", "Bearer " + prop.getProperty("tokenID"))
                                                                   .build();
         if (log) {
             return RestAssured.given(requestSpec).log().all()
