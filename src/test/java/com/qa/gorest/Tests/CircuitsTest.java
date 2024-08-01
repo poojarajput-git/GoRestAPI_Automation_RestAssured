@@ -7,7 +7,7 @@ public class CircuitsTest extends BaseTest {
 
     @Test
     public void getCircuitData() {
-        restClient.get("/api/f1/2017/circuits.json", true)
+        restClient.get("/api/f1/2017/circuits.json", false, true)
                 .then().log().all()
                 .assertThat()
                 .statusCode(200);

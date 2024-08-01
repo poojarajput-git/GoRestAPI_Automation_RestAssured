@@ -8,30 +8,30 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class GetUserTest extends BaseTest {
 
-	@Test
+	@Test(enabled = true, priority = 2)
 	public void getAllUsers() {
-		restClient.get("/public/v2/users", true)
+		restClient.get("/public/v2/users", true, true)
 		          .then().log().all()
 		             .assertThat()
 		               .statusCode(200);
 	}
 
-	@Test
+	@Test(enabled = true,priority = 0)
 	public void getUser() {
-		restClient.get("/public/v2/users/7264335", true)
+		restClient.get("/public/v2/users/7264335", true, true)
 		          .then().log().all()
 		             .assertThat().statusCode(200)
 		                .and().body("id", equalTo(7264335));
 	}
 
 
-	@Test
+	@Test(enabled = false)
 	public void getUserWithQueryParam() {
 		Map<String, String> queryParams =  new HashMap<String, String>();
 		queryParams.put("name", "Dharmraj");
 		queryParams.put("status", "active");
 
-		restClient.get("/public/v2/users/", null, queryParams, true)
+		restClient.getWithQuery("/public/v2/users/", queryParams, true, true)
 		          .then().log().all()
 		             .assertThat().statusCode(200);
 	}

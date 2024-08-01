@@ -15,12 +15,12 @@ public class CreateUserTest extends BaseTest {
 	public void createUserAllTest() {
 		//post
 		user_pojo = new UserPOJO("Sachin Shukla", StringUtils.generateRandomEmailID(), "male", "active");
-		Integer userID = restClient.post("/public/v2/users", "JSON", user_pojo, true)
+		Integer userID = restClient.post("/public/v2/users", "JSON", user_pojo, true, true)
 		          .then().assertThat().statusCode(201)
 		          .extract().path("id");
 		System.out.println(userID);
 		//get
-		restClient.get("/public/v2/users/"+userID, true)
+		restClient.get("/public/v2/users/"+userID, true, true)
 		          .then().assertThat().statusCode(200)
 		          .assertThat().body("id", equalTo(userID));
 	}

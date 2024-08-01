@@ -9,12 +9,12 @@
         </classes>
     </test>
 
-    <!--<test name="GoRest API Test2">
+    <test name="GoRest API Test2">
         <parameter name="baseURI" value="https://gorest.co.in" />
         <classes>
             <class name="com.qa.gorest.Tests.CreateUserTest"/>
         </classes>
-    </test>-->
+    </test>
 
     <test name="Circuits API Tests">
         <parameter name="baseURI" value="https://ergast.com" />
@@ -22,4 +22,6 @@
             <class name="com.qa.gorest.Tests.CircuitsTest"/>
         </classes>
     </test>
+
+
 </suite>
