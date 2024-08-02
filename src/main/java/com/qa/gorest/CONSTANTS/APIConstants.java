@@ -1,5 +1,5 @@
 package com.qa.gorest.CONSTANTS;
 
-public class APIConstants {
+public enum APIConstants {
 
 }

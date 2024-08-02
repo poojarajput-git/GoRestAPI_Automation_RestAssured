@@ -11,6 +11,10 @@ import java.util.Properties;
 
 public class BaseTest {
 
+    //Service URLs for different APIs
+    public static final String GOREST_ENDPOINT= "/public/v2/users";
+    public static final String CIRCUIT_ENDPOINT= "/api/f1/2017/circuits.json";
+
     protected ConfigurationManager config;
     protected Properties prop;
     protected RestClient restClient;

@@ -1,6 +1,7 @@
 package com.qa.gorest.Tests;
 
 import com.qa.gorest.Base.BaseTest;
+import com.qa.gorest.CONSTANTS.APIHttpStatus;
 import org.testng.annotations.Test;
 import com.qa.gorest.Client.RestClient;
 import com.qa.gorest.Pojo.UserPOJO;
@@ -14,14 +15,15 @@ public class CreateUserTest extends BaseTest {
 	@Test
 	public void createUserAllTest() {
 		//post
-		user_pojo = new UserPOJO("Sachin Shukla", StringUtils.generateRandomEmailID(), "male", "active");
-		Integer userID = restClient.post("/public/v2/users", "JSON", user_pojo, true, true)
-		          .then().assertThat().statusCode(201)
+		user_pojo =
+				new UserPOJO("Arjun KOHLI", StringUtils.generateRandomEmailID(), "male", "active");
+		Integer userID = restClient.post(GOREST_ENDPOINT, "JSON", user_pojo, true, true)
+		          .then().assertThat().statusCode(APIHttpStatus.CREATED_201.getCode())
 		          .extract().path("id");
 		System.out.println(userID);
 		//get
-		restClient.get("/public/v2/users/"+userID, true, true)
-		          .then().assertThat().statusCode(200)
+		restClient.get(GOREST_ENDPOINT+"/"+userID, true, true)
+		          .then().assertThat().statusCode(APIHttpStatus.OK_200.getCode())
 		          .assertThat().body("id", equalTo(userID));
 	}
 
