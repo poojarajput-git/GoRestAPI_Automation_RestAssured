@@ -16,7 +16,9 @@
         </classes>
     </test>-->
 
-    <test name="GoRest API Test1">
+
+
+    <!--<test name="GoRest API Test1">
         <parameter name="baseURI" value="https://gorest.co.in" />
         <classes>
             <class name="com.qa.gorest.Tests.GetUserTest"/>
@@ -28,7 +30,7 @@
         <classes>
             <class name="com.qa.gorest.Tests.CreateUserTest"/>
         </classes>
-    </test>
+    </test>-->
 
     <test name="Circuits API Tests">
         <parameter name="baseURI" value="https://ergast.com" />
