@@ -1,7 +1,9 @@
 package com.qa.gorest.Tests;
 
 import com.qa.gorest.Base.BaseTest;
+import com.qa.gorest.CONSTANTS.APIConstants;
 import com.qa.gorest.CONSTANTS.APIHttpStatus;
+import com.qa.gorest.Utils.ExcelUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.qa.gorest.Pojo.UserPOJO;
@@ -14,17 +16,23 @@ import static org.hamcrest.Matchers.*;
 public class CreateUserTest extends BaseTest {
 	UserPOJO user_pojo;
 
+	//this is for fetching data from DATA PROVIDER direct 2D object array
 	@DataProvider
 	public Object[][] getUserData(){
 		return new Object[][]{
 			{"Subodh","male","active"},
-			{"Sema","female","inactive"},
+			{"Seema","female","inactive"},
 			{"Madhuri","female","active"}
 		};
-
 	}
 
-	@Test(dataProvider = "getUserData")
+	//this is for fetching data from DATA PROVIDER using excel sheet
+	@DataProvider
+	public Object[][] getUserTestSheetData(){
+		return ExcelUtils.getTestData(APIConstants.USER_SHEET_NAME);
+	}
+
+	@Test(dataProvider = "getUserTestSheetData")
 	public void createUserAllTest(String name, String gender, String status) {
 		//post
 		user_pojo =
