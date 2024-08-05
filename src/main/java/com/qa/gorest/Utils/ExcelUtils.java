@@ -1,18 +1,12 @@
 package com.qa.gorest.Utils;
 
 import org.apache.poi.ss.usermodel.*;
-
 import java.io.FileInputStream;
 import java.io.IOException;
-
 public class ExcelUtils {
-
-    private Workbook workbook;
-
     private static final String TEST_DATA_SHEET_PATH = "./src/test/resources/TestData/API_Data.xlsx";
     private static Workbook book;
     private static Sheet sheet;
-
     public static Object[][] getTestData(String sheetName) {
         Object data[][] = null;
         try{

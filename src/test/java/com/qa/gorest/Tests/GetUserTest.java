@@ -25,7 +25,6 @@ public class GetUserTest extends BaseTest {
 		                .and().body("id", equalTo(7264335));
 	}
 
-
 	@Test(enabled = true,priority = 1)
 	public void getUserWithQueryParam() {
 		Map<String, String> queryParams =  new HashMap<String, String>();
@@ -36,8 +35,6 @@ public class GetUserTest extends BaseTest {
 		          .then().log().all()
 		             .assertThat().statusCode(APIHttpStatus.OK_200.getCode());
 	}
-
-
 
 
 }

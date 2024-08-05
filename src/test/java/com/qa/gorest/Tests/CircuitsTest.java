@@ -12,7 +12,6 @@ import java.util.List;
 public class CircuitsTest extends BaseTest {
 
 
-    //code smell :  SonarQube
     @Test
     public void getCircuitData() {
        Response circuitResponse =  restClient.get(CIRCUIT_ENDPOINT, false, true);

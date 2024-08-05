@@ -6,17 +6,6 @@
         <listener class-name="com.qa.gorest.listeners.ExtentReportListener"/>
     </listeners>
 
-    <!--<test name="Amadeus Flight API Test">
-        <parameter name="baseURI" value="https://test.api.amadeus.com" />
-        <parameter name="grantType" value="client_credentials" />
-        <parameter name="clientID" value="TAnRnsU5lASXZ8mPGdwRQZMoQzhu6Gwv" />
-        <parameter name="clientSecret" value="VjjgfcJiINAzcSJw" />
-        <classes>
-            <class name="com.qa.gorest.Tests.AmadeusAPITest"/>
-        </classes>
-    </test>-->
-
-
 
     <test name="GoRest API Test1">
         <parameter name="baseURI" value="https://gorest.co.in" />

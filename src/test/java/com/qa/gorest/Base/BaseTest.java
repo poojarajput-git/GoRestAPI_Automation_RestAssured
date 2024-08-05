@@ -7,6 +7,7 @@ import io.restassured.RestAssured;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
+import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest {
@@ -24,7 +25,6 @@ public class BaseTest {
     public void setUp(String baseURI){
 
         // RestAssured.filters(new AllureRestAssured()); //Allure Report
-
         config  = new ConfigurationManager();
         prop = config.initProp();
         //String baseURI = prop.getProperty("baseURI");
