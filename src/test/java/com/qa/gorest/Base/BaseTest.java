@@ -2,7 +2,6 @@ package com.qa.gorest.Base;
 
 import com.qa.gorest.Client.RestClient;
 import com.qa.gorest.Configuration.ConfigurationManager;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
