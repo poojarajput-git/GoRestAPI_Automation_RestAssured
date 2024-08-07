@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class GetUserTest extends BaseTest {
 
-	@Test(enabled = true, priority = 3)
+	@Test(enabled = true)
 	public void getAllUsers() {
 		restClient.get(GOREST_ENDPOINT, true, true)
 		          .then().log().all()
@@ -25,7 +25,7 @@ public class GetUserTest extends BaseTest {
 		                .and().body("id", equalTo(7264335));
 	}*/
 
-	@Test(enabled = true,priority = 1)
+	@Test(enabled = true)
 	public void getUserWithQueryParam() {
 		Map<String, String> queryParams =  new HashMap<String, String>();
 		queryParams.put("name", "Dharmraj");
